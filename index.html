@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta lang="pl">
+    <meta charset="UTF-8">
+    <title>Zadanie 25.10</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        container {
+            width: 100vw;
+            font-family: Arial;
+        }
+
+        .nav1 {
+            width: 100%;
+            background-color: rgb(0, 109, 104);
+        }
+
+        .nav1 ul {
+            display: flex;
+            list-style: none;
+            height: 5vh;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .nav1 ul a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav1 ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .zwijana1 {
+            display: none;
+            padding: 1%;
+        }
+
+        .lista1:hover ol {
+            background-color: rgb(0, 109, 104);
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+        }
+
+        svg {
+            fill: white;
+        }
+
+        .lista1:hover svg {
+            fill: orange;
+        }
+
+        .nav2 {
+            background-color: white;
+            padding: 2%;
+            width: 100%;
+        }
+
+        .nav2 ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .nav2 ul a {
+            color: grey;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+        .nav2 ul li a:hover {
+            text-decoration: none;
+            color: rgb(0, 109, 104);
+            font-size: 1.5em;
+        }
+
+        #mojekonto {
+            color: white;
+        }
+
+        .klik {
+            padding: 1%;
+            background-color: rgb(0, 109, 104);
+            border: solid 2px white;
+        }
+
+        .klik:hover {
+            border: solid 2px rgb(0, 109, 104);
+            background-color: white;
+        }
+
+        .klik:hover #mojekonto {
+            color: rgb(0, 109, 104);
+        }
+
+        .nav3 {
+            background-color: white;
+            border-top: solid grey 1px;
+            width: 100%;
+            padding: 2%;
+        }
+
+        .nav3 ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .nav3 ul a {
+            color: grey;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+        .nav3 ul li a:hover {
+            color: rgb(0, 109, 104);
+            text-decoration: none;
+            font-size: 1.5em;
+
+        }
+
+        .zwijana2 {
+            position: absolute;
+            display: none;
+            padding: 1%;
+        }
+
+        .lista2:hover .zwijana2 {
+            background-color: white;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            position: absolute;
+        }
+
+        .zwijana3 {
+            display: none;
+        }
+
+        .lista3:hover .zwijana3 {
+            z-index: 2;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            left: 100%;
+            top: 75%;
+            background-color: white;
+            list-style-type: none;
+            width: 8vw;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #lupa {
+            width: 80px;
+            height: 50px;
+            border: solid 2px white;
+            background-color: rgb(0, 109, 104);
+            color: white;
+            padding: 20%;
+            padding-top: 9%;
+
+        }
+
+        #lupa:hover {
+            border: solid 2px rgb(0, 109, 104);
+            color: rgb(0, 109, 104);
+            background-color: white;
+
+        }
+
+        .slider {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .slider_obrazy {
+            animation: 20s slajdy infinite;
+            width: 100%;
+            position: relative;
+            display: flex;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        @keyframes slajdy {
+            0% {
+                left: 0;
+            }
+
+            5% {
+                left: 0;
+            }
+
+            35% {
+                left: -100%;
+            }
+
+            40% {
+                left: -100%;
+            }
+
+            60% {
+                left: -200%;
+            }
+
+            65% {
+                left: -200%;
+            }
+
+            80% {
+                left: -300%;
+            }
+
+            85% {
+                left: -300%;
+            }
+
+            95% {
+                left: 0;
+            }
+
+            100% {
+                left: 0;
+            }
+        }
+
+        .dol {
+            width: 100%;
+            padding: 3%;
+        }
+
+        .dol h2 {
+            color: rgb(0, 109, 104);
+            text-align: center;
+            padding-bottom: 8%;
+            font-size: 2em;
+            width: 100%;
+        }
+
+        .obrazy {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .opis {
+            text-align: center;
+            padding-top: 5%;
+            width: 20vw;
+            color: gray;
+
+        }
+
+        .opisy {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-evenly;
+            align-items: flex-start;
+
+        }
+
+        .opisy h3 a {
+            color: rgb(0, 109, 104);
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <container>
+        <nav class="nav1">
+            <ul>
+
+                <li><a href="#">Oświata i prawo</a></li>
+                <li><a href="#">Zamówienia</a></li>
+                <li><a href="#">Deklaracje</a></li>
+                <li><a href="#">Kursy internetowe</a></li>
+                <li><a href="#">Generator testów</a></li>
+                <li><a href="#">Ortograffiti</a></li>
+                <li><a href="#">Multiteka</a></li>
+                <li><a href="#">Ja czytam!</a></li>
+                <li><a href="#">Egzaminy próbne</a></li>
+
+                <li class="lista1"><a href="#">Więcej<span><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg></span></a>
+
+                    <ol class="zwijana1">
+                        <li><a href="#">strona 1</a></li>
+                        <li><a href="#">strona 2</a></li>
+                        <li><a href="#">strona 3</a></li>
+                        <li><a href="#">strona 4</a></li>
+                    </ol>
+
+
+                </li>
+
+            </ul>
+        </nav>
+
+        <nav class="nav2">
+            <ul>
+                <li><img class="logo.png" src="logo.png" alt="logo"></li>
+                <li><a href="#">O nas</a></li>
+                <li><a href="#">Aktualności</a></li>
+                <li><a href="#">E-księgarnia</a></li>
+                <li><a href="#">Księgarnie/Hurtownie</a></li>
+                <li><a href="#">Kontakt</a></li>
+                <li class="klik"><a id="mojekonto" href="#">Moje Konto</a></li>
+            </ul>
+        </nav>
+
+
+        <nav class="nav3">
+            <ul>
+                <li class="lista2"><a href="#">Szkoła Podstawowa</a>
+                    <ol class="zwijana2">
+                        <li><a href="#">strona 1</a></li>
+                        <li><a href="#">strona 2</a></li>
+                        <li><a href="#">strona 3</a></li>
+
+                        <li class="lista3"><a href="#">strona 4</a>
+
+                            <ol class="zwijana3">
+                                <li><a href="#">strona 1</a></li>
+                                <li><a href="#">strona 2</a></li>
+                                <li><a href="#">strona 3</a></li>
+                                <li><a href="#">strona 4</a></li>
+
+                            </ol>
+
+                        </li>
+
+                    </ol>
+
+                </li>
+
+                <li><a href="#">Szkoły Ponadgimnazjalne</a>
+                <li><a href="#">Liceum i Technikum</a></li>
+                <li><a href="#">Szkoły Branżowe</a></li>
+                <li><a href="#">Aplikacja Operon 45</a></li>
+                <li><a href="#">Egzaminy</a></li>
+                <li><a href="#">
+                        <div id="lupa">
+                            <img src="lupa.png">
+                        </div>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <div class="slider">
+            <div class="slider_obrazy">
+                <img src="slider1.jpg">
+                <img src="slider2.jpg">
+                <img src="slider3.jpg">
+            </div>
+        </div>
+
+
+        <div class="dol">
+
+            <h2>Szkoła ponadpodstawowa - Mobilna lekcja z Operonem</h2>
+
+            <div class="obrazy">
+                <a href="#"><img src="telefon.jpg"></a>
+                <a href="#"><img src="dyplom.jpg"></a>
+                <a href="#"><img src="ekierka.jpg"></a>
+            </div>
+
+            <div class="opisy">
+
+                <div class="opis">
+                    <h3><a href="#">Aplikacja Operon 45<br><br></a></h3>
+                    <p>Wybierz Operon, wybierz mobilność.</p>
+                </div>
+
+                <div class="opis">
+                    <h3><a href="#">Liceum i technikum<br><br></a></h3>
+                    <p>Podręczniki dla uczniów liceum<br> i technikum – przygotowanie do matury<br> już od pierwszej klasy.</p>
+                </div>
+
+                <div class="opis">
+                    <h3><a href="#">Szkoła branżowa<br><br></a></h3>
+                    <p>Podręczniki dla uczniów szkoły<br> branżowej I stopnia – zgodne z nową<br> podstawą programową.</p>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </container>
+</body>
+
+</html>
